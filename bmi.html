@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BODY MASS INDEX</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- load jquery and bootstrap js -->
+    <script src="assets/js/jquery.min.js" ></script>
+    <script src="assets/js/popper.min.js" ></script>
+    <script src="assets/js/bootstrap.js" ></script>
+    <script type="text/javascript">
+
+
+
+    count = () =>{
+      //mengambil nilai dari elemen (get value)
+      let berat = document.getElementById('berat').value;
+      let tinggi = document.getElementById('tinggi').value;
+      let hasil = berat / (tinggi * tinggi);
+
+      if(hasil<18.5){
+            document.getElementById('hasil').value = "kurus";
+        }else if(hasil <=18.5 && hasil <= 22.9){
+           document.getElementById('hasil').value = "normal";
+        }else if (hasil > 22.9 && hasil <=24.9){
+            document.getElementById('hasil').value = "overweight";
+        }else if(hasil >=25){
+            document.getElementById('hasil').value = "obesitas";
+        }
+    }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card col-sm-4">
+        <div class="card-header">
+          <h4>BODY MASS INDEX</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-3 mt-2">
+              berat
+            </div>
+            <div class="col-8 mt-2">
+              <input type="number" id="berat" class="form-control">
+            </div>
+            <div class="col-3 mt-2">
+              tinggi
+            </div>
+            <div class="col-8 mt-2">
+              <input type="number" id="tinggi" class="form-control">
+            </div>
+          </div>
+          <button type="button" class="btn btn-info "
+          onclick="count()">
+          hitung
+        </button>
+        </div>
+        <div class="col-8">
+        hasil
+        <input type="text" id="hasil" class="form-control">
+      </div>
+      </div>
+    </div>
+  </body>
+</html>

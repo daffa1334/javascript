@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CICILAN</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- load jquery and bootstrap js -->
+    <script src="assets/js/jquery.min.js" ></script>
+    <script src="assets/js/popper.min.js" ></script>
+    <script src="assets/js/bootstrap.js" ></script>
+    <script type="text/javascript">
+
+
+
+    count = () =>{
+      //mengambil nilai dari elemen (get value)
+      let nominal = Number(document.getElementById('nominal').value);
+      let periode = Number(document.getElementById('periode').value);
+      let bunga = Number(document.getElementById('bunga').value);
+      let cicilan = (nominal + (bunga * nominal / 100)) /periode;
+      document.getElementById('cicilan').value = cicilan;
+    }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card col-sm-4">
+        <div class="card-header">
+          <h4>cicilan</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-4 mt-2">
+              nominal
+            </div>
+            <div class="col-8 mt-2">
+              <input type="number" id="nominal" class="form-control">
+            </div>
+            <div class="col-4 mt-2">
+              periode
+            </div>
+            <div class="col-8 mt-2">
+              <select id="periode" class="form-control">
+                <option value="12" > 12 bulan></option>
+                <option value="24" > 24 bulan></option>
+                <option value="36" > 36 bulan></option>
+              </select>
+            </div>
+            <div class="col-4 mt-2">
+              bunga
+
+            </div>
+            <div class="col-8 mt-2">
+              <input type="number" id="bunga" class="form-control">
+            </div>
+          </div>
+          <button type="button" class="btn btn-info btn-block"
+          onclick="count()">
+          hitung
+        </button>
+        </div>
+        <div class="col-8">
+        hasil
+        <input type="text" id="cicilan" class="form-control" readonly>
+      </div>
+      </div>
+    </div>
+  </body>
+</html>
